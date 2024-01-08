@@ -3,28 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vyoma - Personal Idea Evaluator</title>
+    <title>GAIA - Personal Idea Evaluator</title>
     <!-- Add Bootstrap CDN links here -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <style>
+        /* Add your styles here */
         body {
             background-color: #000000;
             color: #ffffff;
         }
 
         .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
+            text-align: center;
             margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1, h2 {
+            font-style: italic;
         }
 
         h1 {
-            font-size: 3em;
-            font-style: italic;
+            font-size: 4em;
             font-weight: bold;
             margin: 0;
             background: linear-gradient(to bottom, #55cc55, #116611);
@@ -34,78 +40,92 @@
 
         h2 {
             color: #ffffff;
-            font-size: 1.8em;
-            font-style: italic;
+            font-size: 2em;
             margin-bottom: 20px;
         }
 
         .form-group {
-            text-align: center;
+            text-align: left;
         }
 
         .btn-primary {
-            background-color: #116611; /* Light green color on hover */
+            background-color: #116611;
             border-color: #116611;
         }
 
         .btn-primary:hover {
-
-            background-color: #55cc55; /* Dark green color for the button */
+            background-color: #55cc55;
             border-color: #55cc55;
         }
 
         #result {
             font-size: 1.5em;
-           /* white-space: pre-line; /* Preserve line breaks in the result */
         }
+
         #result ul li {
         }
-        #result p {
-            margin-top: 10px; /* Adjust this value to control the spacing */
 
+        #result p {
+            margin-top: 10px;
         }
 
+        .container {
+            max-width: 900px;
+        }
+
+        input.form-control {
+            font-size: 1.2em;
+        }
+
+        .col-md-6 {
+            width: 45%;
+        }
+
+        .comment-text {
+            white-space: pre-line;
+            /* Add any additional styles you want for the comment text */
+        }
     </style>
 </head>
 <body>
 
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="header-container">
-                    <h1>Vyoma</h1>
-                    <h2>Your Personal Idea Evaluator</h2>
-                </div>
-
-                <form method="post">
-                    <div class="form-group">
-                        <label for="problem">Problem</label>
-                        <input type="text" class="form-control" name="problem" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="solution">Solution</label>
-                        <input type="text" class="form-control" name="solution" required>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-block">Evaluate</button>
-                </form>
-
-                <div id="result">
-                    {% if result %}
-                        <p>Evaluation:</p>
-                        <ul>
-                            {% for key, value in result['evaluation'].items() %}
-                                <li>{{ key }}: {{ value }}</li>
-                            {% endfor %}
-                        </ul>
-                        <p>Feedback: {{ result['feedback'] }}</p>
-                        <p>{{ result['problem_text'] }} - {{ result['solution_text'] }}</p>
-                    {% endif %}
-                </div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="header-container">
+                <h1>GAIA</h1>
+                <h2>Your Personal Idea Evaluator</h2>
             </div>
         </div>
     </div>
 
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post">
+                <div class="form-group">
+                    <label for="problem">Problem</label>
+                    <input type="text" class="form-control" name="problem" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="solution">Solution</label>
+                    <input type="text" class="form-control" name="solution" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Evaluate</button>
+            </form>
+        </div>
+
+        <div class="col-md-6">
+            <div id="result">
+                {% if result %}
+                    <span class="comment-text">{{ result|safe }}</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
+
