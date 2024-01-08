@@ -1,5 +1,6 @@
 # RRR-GenAI-Competition-Submission
 Our Project: http://nishkp.pythonanywhere.com/
+<a href="https://drive.google.com/uc?export=view&id=https://drive.google.com/file/d/1LpItwxijVKkfz_4VkHr3tDa0iZmOIg50/view?usp=drive_link"><img src="https://drive.google.com/uc?export=view&id=https://drive.google.com/file/d/1LpItwxijVKkfz_4VkHr3tDa0iZmOIg50/view?usp=drive_link" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
 
 # Project Overview
 
