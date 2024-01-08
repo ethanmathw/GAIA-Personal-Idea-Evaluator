@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from openai_helper import get_openai_response
 
 app = Flask(__name__)
 
@@ -10,17 +11,14 @@ def index():
         problem_text = request.form['problem']
         solution_text = request.form['solution']
 
-        result = {
-            'evaluation': {
-                'economic_stability': 8,
-                'technological_innovation': 7,
-                'feasibility': 9,
-                'circular_economy': 8
-            },
-            'feedback': 'Your focus on solar power is commendable, showing good economic stability and technological innovation. However, consider exploring circular economy principles for more sustainable solutions.',
-            'problem_text': problem_text,
-            'solution_text': solution_text
-        }
+        # Call OpenAI API to get the response
+        openai_response = get_openai_response(problem_text, solution_text)
+
+        # Parse OpenAI response
+        # You need to implement your own logic to extract values from the OpenAI response
+        # and convert them into a format suitable for your result dictionary.
+
+        result = openai_response
 
     return render_template('index.html', result=result)
 
