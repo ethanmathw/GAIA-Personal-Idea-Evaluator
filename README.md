@@ -1,4 +1,4 @@
-# RRR-GenAI-Competition-Submission
+# GAIA: RRR-GenAI-Competition-Submission
 Our Project: http://nishkp.pythonanywhere.com/
 
 # Project Overview
